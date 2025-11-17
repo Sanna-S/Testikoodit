@@ -51,7 +51,7 @@ def tulosta_varauus(varaus):
     print(f"Päivämäärä: {hae_paiva(varaus)}")
     print(f"Aloitusaika: {hae_aloitusaika(varaus)}")
     print(f"Tuntimäärä: {hae_tuntimaara(varaus)}")
-    print(f"Tuntihinta: {hae_tuntihinta(varaus):.2f} €")
+    print(f"Tuntihinta: {hae_tuntihinta(varaus):.2f}".replace('.',',') + " €")
     print(f"Kokonaishinta: {laske_kokonaishinta(varaus):.2f}".replace('.',',') + " €")
     print(f"Maksettu: {'Kyllä' if hae_maksettu(varaus) else 'Ei'}")
     print(f"Kohde: {hae_kohde(varaus)}")
