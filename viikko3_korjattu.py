@@ -65,7 +65,7 @@ def main():
         varaus = f.read().strip()
         varaus = varaus.split('|')
 
-    tulosta_varauus(varaus)
+    tulosta_varaus(varaus)
     
 if __name__ == "__main__":
     main()
