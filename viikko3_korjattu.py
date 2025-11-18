@@ -1,63 +1,55 @@
 from datetime import datetime
 
-def hae_varausnumero(varaus: list[str]) -> str:
+def hae_varausnumero(varaus):
     varausnumero = int(varaus[0])
-    return varausnumero
+    print(f"Varausnumero: {varausnumero}")
+    
 
-def hae_varaaja(varaus: list[str]) -> str:
-    nimi = varaus[1]
-    return nimi
+def hae_varaaja(varaus):
+    nimi = str(varaus[1])
+    print(f"Varaaja: {nimi}")
 
-def hae_paiva(varaus: list[str]) -> str:
+def hae_paiva(varaus):
     paivamaara = datetime.strptime(varaus[2], "%Y-%m-%d").date()
     suomalainenpvm = paivamaara.strftime("%d.%m.%Y")
-    return suomalainenpvm
+    print(f"Päivämäärä: {suomalainenpvm}")
+    
 
-def hae_aloitusaika(varaus: list[str]) -> datetime:
+def hae_aloitusaika(varaus):
     aloitusaika = datetime.strptime(varaus[3], "%H:%M").time()
     suomalainenaika = aloitusaika.strftime("%H.%M")
-    return suomalainenaika   
+    print(f"Aloitusaika: {suomalainenaika}")
+       
     
-def hae_tuntimaara(varaus: list[str]) -> str:
+def hae_tuntimaara(varaus):
     tuntimaara = int(varaus[4])
-    return tuntimaara  
+    print(f"Tuntimäärä: {tuntimaara}")
+    
  
-def hae_tuntihinta(varaus: list[str]) -> float:
+def hae_tuntihinta(varaus):
     tuntihinta = float(varaus[5])
-    return tuntihinta 
+    print(f"Tuntihinta: {tuntihinta:.2f}".replace('.',',') + " €")
   
-def laske_kokonaishinta(varaus: list[str]) -> float:
+def laske_kokonaishinta(varaus):
     kokonainshinta = int(varaus[4]) * float(varaus[5])
-    return kokonainshinta
+    print(f"Kokonaishinta: {kokonainshinta:.2f}".replace('.',',') + " €")
     
-def hae_maksettu(varaus: list[str]) -> str:
-    maksettu = varaus[6]
-    return maksettu
+def hae_maksettu(varaus):
+    maksettu = bool(varaus[6])
+    print(f"Maksettu: {'Kyllä' if maksettu else 'Ei'}")
+
+def hae_kohde(varaus):
+    kohde = str(varaus[7])
+    print(f"Kohde: {kohde}")
     
-def hae_kohde(varaus: list[str]) -> str:
-    kohde = varaus[7]
-    return kohde
-
-def hae_puhelin(varaus: list[str]) -> str:
-    puhelin = varaus[8]
-    return puhelin
-
-def hae_sahkoposti(varaus: list[str]) -> str:
-    sahkoposti = varaus[9]
-    return sahkoposti
-
-def tulosta_varaus(varaus):
-    print(f"Varausnumero: {hae_varausnumero(varaus)}")
-    print(f"Varaaja: {hae_varaaja(varaus)}")
-    print(f"Päivämäärä: {hae_paiva(varaus)}")
-    print(f"Aloitusaika: {hae_aloitusaika(varaus)}")
-    print(f"Tuntimäärä: {hae_tuntimaara(varaus)}")
-    print(f"Tuntihinta: {hae_tuntihinta(varaus):.2f}".replace('.',',') + " €")
-    print(f"Kokonaishinta: {laske_kokonaishinta(varaus):.2f}".replace('.',',') + " €")
-    print(f"Maksettu: {'Kyllä' if hae_maksettu(varaus) else 'Ei'}")
-    print(f"Kohde: {hae_kohde(varaus)}")
-    print(f"Puhelin: {hae_puhelin(varaus)}")
-    print(f"Sähköposti: {hae_sahkoposti(varaus)}")
+def hae_puhelin(varaus):
+    puhelin = str(varaus[8])
+    print(f"Puhelin: {puhelin}")
+    
+def hae_sahkoposti(varaus):
+    sahkoposti = str(varaus[9])
+    print(f"Sähköposti: {sahkoposti}")
+    
 
 def main():
     varaukset = "varaukset.txt"
@@ -65,8 +57,6 @@ def main():
     with open(varaukset, "r", encoding="utf-8") as f:
         varaus = f.read().strip()
         varaus = varaus.split('|')
-
-    tulosta_varaus(varaus)
     
 if __name__ == "__main__":
     main()
