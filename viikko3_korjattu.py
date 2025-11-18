@@ -12,6 +12,7 @@ def hae_paiva(varaus: list[str]) -> str:
     paivamaara = datetime.strptime(varaus[2], "%Y-%m-%d").date()
     suomalainenpvm = paivamaara.strftime("%d.%m.%Y")
     return suomalainenpvm
+
 def hae_aloitusaika(varaus: list[str]) -> datetime:
     aloitusaika = datetime.strptime(varaus[3], "%H:%M").time()
     suomalainenaika = aloitusaika.strftime("%H.%M")
