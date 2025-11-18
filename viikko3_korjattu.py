@@ -45,7 +45,7 @@ def hae_sahkoposti(varaus: list[str]) -> str:
     sahkoposti = varaus[9]
     return sahkoposti
 
-def tulosta_varauus(varaus):
+def tulosta_varaus(varaus):
     print(f"Varausnumero: {hae_varausnumero(varaus)}")
     print(f"Varaaja: {hae_varaaja(varaus)}")
     print(f"Päivämäärä: {hae_paiva(varaus)}")
